@@ -19,13 +19,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingBottom="10dp">
-                <!--<androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/gl1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_percent=".2" />-->
+                android:padding="10dp">
 
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/gl2"
@@ -41,49 +35,52 @@
                     android:orientation="vertical"
                     app:layout_constraintGuide_percent=".85" />
 
-                <!--<ImageView
-                    android:id="@+id/ivItem"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_codi_approved"
-                    android:contentDescription="Pagos qr"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/gl1"
+                <ImageView
+                    android:id="@+id/imgDetail"
+                    android:layout_width="100dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/movie"
+                    android:scaleType="centerCrop"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>-->
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/tvAmountItemPayment"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tvTitleProgram"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    tools:text="Title"
                     android:textStyle="bold"
-                    android:textColor="@color/purple_700"
-                    android:textSize="15sp"
-                    android:layout_marginStart="20dp"
-                    tools:text="Test1"
-                    app:layout_constraintBottom_toTopOf="@+id/tvNameItemPayment"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_chainStyle="packed"
-                    app:layout_constraintEnd_toStartOf="@id/gl2"
-                    app:layout_constrainedWidth="true"
-                    app:layout_constraintHorizontal_bias="0"/>
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imgDetail"
+                    app:layout_constraintTop_toTopOf="@+id/imgDetail" />
 
                 <TextView
-                    android:id="@+id/tvNameItemPayment"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tvNetworkNameProgram"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/teal_700"
-                    android:textSize="14sp"
-                    android:layout_marginStart="20dp"
-                    android:maxLines="3"
-                    tools:text="Test2"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvAmountItemPayment"
-                    app:layout_constraintVertical_chainStyle="packed"
-                    app:layout_constraintEnd_toStartOf="@id/gl2"
-                    app:layout_constrainedWidth="true"
-                    app:layout_constraintHorizontal_bias="0"/>
+                    android:layout_marginTop="8dp"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tvTitleProgram"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTitleProgram"
+                    tools:text="NetworkName" />
+
+
+                <TextView
+                    android:id="@+id/tvInfoProgram"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tvTitleProgram"
+                    app:layout_constraintTop_toBottomOf="@+id/tvNetworkNameProgram"
+                    tools:text="Rating" />
+
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
+import coil.transform.RoundedCornersTransformation
 import com.example.tvprograms.R
 import com.example.tvprograms.data.remote.responses.Programs
 import com.example.tvprograms.databinding.ItemProgramsBinding
@@ -20,8 +22,6 @@ class ProgramsAdapter (private val listener: (Programs) -> Unit)
     : ListAdapter<Programs, RecyclerView.ViewHolder>(Dif()) {
 
     private lateinit var context: Context
-
-    private lateinit var binding: ItemProgramsBinding
     private val adapterScope = CoroutineScope(Dispatchers.Default)
 
     fun addHeaderandSubmitList(list : List<Programs>?){
@@ -65,7 +65,14 @@ class ListViewHolder(view: View): RecyclerView.ViewHolder(view) {
     fun bind(
             item: Programs
     ) {
-        itemView.tvAmountItemPayment.text = item.name
+        itemView.tvTitleProgram.text = item.name
+        itemView.tvNetworkNameProgram.text = item.show.network?.name
+        itemView.tvInfoProgram.text = "${item.airdate} ! ${item.airtime}"
+        itemView.imgDetail.load(item.show.image?.medium){
+            crossfade(true)
+            crossfade(50)
+            transformations(RoundedCornersTransformation(20f))
+        }
     }
 }
 

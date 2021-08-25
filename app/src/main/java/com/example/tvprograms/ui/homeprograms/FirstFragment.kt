@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.tvprograms.R
 import com.example.tvprograms.data.remote.responses.Programs
 import com.example.tvprograms.databinding.FragmentFirstBinding
 import com.example.tvprograms.ui.ProgramsViewModel
@@ -41,7 +43,7 @@ class FirstFragment : Fragment() {
 
         binding.buttonFirst.setOnClickListener {
             viewModel.getPrograms("US", "2020-07-05")
-            //findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
 
 
