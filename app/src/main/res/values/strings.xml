@@ -1,15 +1,16 @@
 <resources>
     <string name="app_name">TvPrograms</string>
     <string name="action_settings">Settings</string>
+    <string name="action_search">Buscar Programa</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="talents">Talentos</string>
     <string name="visitSite">Visitar sitio</string>
-    <string name="rating">Rating </string>
-    <string name="genres"><b>Generos: </b></string>
-    <string name="squedule"><b>Horarios: </b></string>
-    <string name="sinopsis">Sinópsis/n </string>
+    <string name="rating">Rating %s</string>
+    <string name="genres"><b>Generos: </b>%s</string>
+    <string name="squedule"><b>Horarios: </b>%s</string>
+    <string name="sinopsis"><b>Sipnosis: /n</b>%s</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
