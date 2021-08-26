@@ -39,10 +39,11 @@
                     android:id="@+id/imgDetail"
                     android:layout_width="100dp"
                     android:layout_height="150dp"
-                    android:src="@drawable/movie"
                     android:scaleType="centerCrop"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/movie"
+                    tools:srcCompat="@drawable/movie" />
 
                 <TextView
                     android:id="@+id/tvTitleProgram"

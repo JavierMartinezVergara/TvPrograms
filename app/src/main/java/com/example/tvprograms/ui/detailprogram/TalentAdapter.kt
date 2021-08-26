@@ -1,4 +1,4 @@
-package com.example.tvprograms.ui.homeprograms
+package com.example.tvprograms.ui.detailprogram
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -10,21 +10,20 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.transform.RoundedCornersTransformation
 import com.example.tvprograms.R
-import com.example.tvprograms.data.local.ProgramsLocal
-import com.example.tvprograms.databinding.ItemProgramsBinding
-import kotlinx.android.synthetic.main.item_programs.view.*
+import com.example.tvprograms.data.local.TalentLocal
+import kotlinx.android.synthetic.main.item_talent.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class ProgramsAdapter (private val listener: (ProgramsLocal) -> Unit)
-    : ListAdapter<ProgramsLocal, RecyclerView.ViewHolder>(Dif()) {
+class TalentAdapter (private val listener: (TalentLocal) -> Unit)
+    : ListAdapter<TalentLocal, RecyclerView.ViewHolder>(Dif()) {
 
     private lateinit var context: Context
     private val adapterScope = CoroutineScope(Dispatchers.Default)
 
-    fun addHeaderandSubmitList(list : List<ProgramsLocal>?){
+    fun addHeaderandSubmitList(list : List<TalentLocal>?){
 
         adapterScope.launch {
             withContext(Dispatchers.Main){
@@ -36,13 +35,13 @@ class ProgramsAdapter (private val listener: (ProgramsLocal) -> Unit)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
-        return ListViewHolder.from(parent)
+        return TalentViewHolder.from(parent)
 
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
-            is ListViewHolder -> {
+            is TalentViewHolder -> {
                 val item = getItem(position)
                 holder.bind(item)
                 holder.itemView.setOnClickListener { listener(item) }
@@ -53,24 +52,22 @@ class ProgramsAdapter (private val listener: (ProgramsLocal) -> Unit)
     }
 }
 
-class ListViewHolder(view: View): RecyclerView.ViewHolder(view) {
+class TalentViewHolder(view: View): RecyclerView.ViewHolder(view) {
     companion object {
-        fun from(parent: ViewGroup): ListViewHolder {
+        fun from(parent: ViewGroup): TalentViewHolder {
             val layoutInflater = LayoutInflater.from(parent.context)
-            val view = layoutInflater.inflate(R.layout.item_programs, parent, false)
-            return ListViewHolder(view)
+            val view = layoutInflater.inflate(R.layout.item_talent, parent, false)
+            return TalentViewHolder(view)
         }
 
     }
 
     fun bind(
-            item: ProgramsLocal
+            item: TalentLocal
     ) {
-        itemView.tvTitleProgram.text = item.name
-        itemView.tvNetworkNameProgram.text = item.name
-        itemView.tvInfoProgram.text = "${item.airdate} | ${item.airtime}"
+        itemView.tvNameTalent.text = item.name
         if(!item.image.isNullOrBlank()){
-            itemView.imgDetail.load(item.image){
+            itemView.imgTalent.load(item.image){
                 crossfade(true)
                 crossfade(20)
                 transformations(RoundedCornersTransformation(20f))
@@ -83,12 +80,12 @@ class ListViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
 
 
-class Dif : DiffUtil.ItemCallback<ProgramsLocal>() {
-    override fun areItemsTheSame(oldItem: ProgramsLocal, newItem: ProgramsLocal): Boolean {
-        return oldItem.id == newItem.id
+class Dif : DiffUtil.ItemCallback<TalentLocal>() {
+    override fun areItemsTheSame(oldItem: TalentLocal, newItem: TalentLocal): Boolean {
+        return oldItem.name == newItem.name
     }
 
-    override fun areContentsTheSame(oldItem: ProgramsLocal, newItem: ProgramsLocal): Boolean {
+    override fun areContentsTheSame(oldItem: TalentLocal, newItem: TalentLocal): Boolean {
         return oldItem == newItem
     }
 

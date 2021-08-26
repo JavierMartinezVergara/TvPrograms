@@ -20,6 +20,10 @@
         android:name="com.example.tvprograms.ui.detailprogram.SecondFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
+        <argument
+            android:name="id"
+            app:argType="string"
+            android:defaultValue="0" />
 
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
